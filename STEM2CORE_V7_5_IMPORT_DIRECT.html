@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10131b"><meta name="description" content="STEM2CORE — transformez vos enregistrements en partitions musicales.">
+  <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="STEM2CORE">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--bg:#10131b;--panel:#171c27;--panel2:#1d2431;--line:#2a3241;--muted:#929bad;--text:#f2f4f8;--accent:#a78bfa;--accent2:#7c5ce7;--cyan:#71d7d0;--radius:18px}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px}button,input,select{font:inherit}button{cursor:pointer}.app-shell{min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:245px;background:#0c0f16;border-right:1px solid var(--line);padding:28px 18px;display:flex;flex-direction:column;z-index:5}.brand{display:flex;align-items:center;gap:11px;color:#fff;text-decoration:none;font:700 19px 'Space Grotesk';letter-spacing:.2px}.brand-mark{width:39px;height:39px;border-radius:12px;background:linear-gradient(135deg,#b69bff,#7154d9);display:grid;place-items:center;font-size:23px;color:#151222}.brand-light{color:var(--accent)}.brand small{display:block;color:#798397;font:600 8px 'DM Sans';letter-spacing:2px;margin-top:3px}.sidebar nav{display:grid;gap:8px;margin-top:55px}.nav-item{border:0;background:transparent;color:#aab2c1;text-align:left;padding:13px 14px;border-radius:11px;font-weight:600}.nav-item span{display:inline-block;width:27px;font-size:17px;color:#9b88dc}.nav-item.active,.nav-item:hover{background:#211d32;color:#fff}.sidebar-bottom{margin-top:auto;color:#8f9aab;font-size:12px;display:flex;align-items:center;gap:8px;padding:13px 4px}.status-dot{width:7px;height:7px;border-radius:50%;background:#5ed5a5;box-shadow:0 0 12px #5ed5a5}.version{margin-left:auto;color:#647084;font-size:10px}.main{margin-left:245px;min-height:100vh;padding:0 46px;max-width:1600px}.topbar{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.crumb{font-size:10px;letter-spacing:1.5px;color:#788396;font-weight:700}.crumb span{padding:0 9px;color:#4e5869}.crumb b{color:#d9deea;letter-spacing:.2px}.top-actions{display:flex;align-items:center;gap:14px}.local-pill{font-size:11px;color:#9faaba;background:#1b222e;border:1px solid #303949;border-radius:30px;padding:8px 12px}.local-pill:first-letter{color:#62d5a4}.install-btn{border:1px solid #6f5bb0;color:#d9ceff;background:#28213e;padding:8px 12px;border-radius:9px}.mobile-brand{display:none}.view{padding:36px 0 55px}.welcome{min-height:230px;border:1px solid #34304a;border-radius:22px;background:radial-gradient(ellipse at 80% 45%,#342b55 0,transparent 42%),linear-gradient(110deg,#211d31,#171b29);padding:37px 42px;display:flex;align-items:center;justify-content:space-between;overflow:hidden;position:relative}.eyebrow{font-size:10px;letter-spacing:2px;color:#b4a2f5;font-weight:700;margin-bottom:13px}.welcome h1,.page-title h1{font:600 35px/1.15 'Space Grotesk';letter-spacing:-1.3px;margin:0 0 12px}.welcome p,.page-title p{color:#a9b1c0;max-width:480px;line-height:1.65;margin:0}.welcome-art{width:260px;height:170px;position:relative;flex-shrink:0}.orb{position:absolute;border-radius:50%;filter:blur(1px)}.orb-one{width:165px;height:165px;background:linear-gradient(140deg,#9b83ec,#4a3c83);right:30px;top:0;opacity:.55}.orb-two{width:110px;height:110px;background:linear-gradient(140deg,#77d6cf,#51437d);right:0;top:43px;opacity:.45}.staff{position:absolute;right:14px;top:54px;font:50px Georgia;color:#e5dcff;letter-spacing:5px;transform:rotate(-9deg);text-shadow:0 5px 24px #9b83ec}.section-head{display:flex;justify-content:space-between;align-items:end;margin:34px 0 17px}.section-head h2,.list-heading h3{font:600 19px 'Space Grotesk';margin:0 0 5px}.section-head p{margin:0;color:var(--muted);font-size:12px}.primary-btn{border:0;border-radius:10px;padding:12px 17px;color:#171323;background:linear-gradient(135deg,#c1aaff,#9879f1);font-weight:700;box-shadow:0 5px 20px #7c5ce72b}.primary-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}.primary-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.stat-card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:17px 19px}.stat-card span{display:block;font-size:9px;letter-spacing:1.5px;color:#8994a7;font-weight:700}.stat-card strong{display:block;font:600 27px 'Space Grotesk';margin:7px 0 1px}.stat-card small{color:#758195;font-size:10px}.recent-head{margin-top:38px}.text-btn{border:0;background:none;color:#bba8ff;font-size:12px;font-weight:600;padding:8px}.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.project-card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:17px;min-width:0;cursor:pointer;transition:.18s}.project-card:hover{border-color:#7662b4;transform:translateY(-2px)}.project-cover{height:92px;border-radius:10px;background:linear-gradient(135deg,#2e2945,#202d3b);display:flex;align-items:center;justify-content:center;font:38px Georgia;color:#c9baff;margin-bottom:14px;position:relative;overflow:hidden}.project-cover:after{content:'〰 〰 〰';position:absolute;bottom:10px;left:0;right:0;text-align:center;color:#78c9c5;opacity:.6;font-size:19px;letter-spacing:4px}.project-card h3{font:600 15px 'Space Grotesk';margin:0 0 7px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.project-meta{font-size:11px;color:#8490a3;display:flex;justify-content:space-between;gap:8px}.project-type{display:inline-block;margin-top:12px;background:#29243c;color:#c6b6ff;border-radius:20px;padding:5px 9px;font-size:10px}.empty-state{text-align:center;padding:45px 20px;border:1px dashed #3a4354;border-radius:16px;margin-top:14px}.empty-icon{font:42px Georgia;color:#a78bfa}.empty-state h3{font:600 18px 'Space Grotesk';margin:10px 0 5px}.empty-state p{color:var(--muted);margin:0 0 17px;font-size:12px}.page-title{display:flex;justify-content:space-between;align-items:center;margin:5px 0 28px}.page-title h1{font-size:32px}.import-layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:20px;align-items:start}.import-main{display:grid;gap:16px}.dropzone{position:relative;border:1.5px dashed #63558e;background:linear-gradient(140deg,#201d30,#191f2b);border-radius:17px;min-height:255px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:25px;transition:.2s}.dropzone.dragover{border-color:var(--cyan);background:#1b3034}.upload-icon{width:48px;height:48px;border-radius:14px;background:#332b4d;color:#c5b4ff;display:grid;place-items:center;font-size:27px;margin-bottom:13px}.dropzone h2{font:600 18px 'Space Grotesk';margin:0 0 7px}.dropzone p{color:#9aa4b5;font-size:12px;margin:0 0 16px}.outline-btn{border:1px solid #7865b4;background:#2a2440;color:#e2d9ff;padding:10px 16px;border-radius:9px;font-weight:600}.dropzone small{color:#748094;font-size:9px;letter-spacing:1.5px;margin-top:17px}.form-card,.info-card,.supported-card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:20px}.form-card label{display:block;color:#cbd2df;font-size:12px;font-weight:600;margin:0 0 8px}.form-card input,.form-card select{width:100%;background:#10151e;color:#f4f5f8;border:1px solid #343d4e;border-radius:9px;padding:12px;margin-bottom:17px;outline:none}.form-card input:focus,.form-card select:focus{border-color:#947ce0}.hint{font-size:10px;color:#8792a5;margin:-6px 0 17px}.wide{width:100%}.import-aside{display:grid;gap:13px}.info-symbol{font-size:23px;color:#b8a5ff}.info-card h3,.supported-card h3{font:600 15px 'Space Grotesk';margin:8px 0}.info-card p{color:#939eb0;font-size:11px;line-height:1.65;margin:0}.instrument-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}.instrument-tags span{font-size:10px;color:#c4b6ed;background:#2b2540;padding:7px 9px;border-radius:7px}.privacy-note{display:flex;gap:10px;color:#79d3bd;background:#182a2b;border:1px solid #28504b;border-radius:12px;padding:13px;font-size:16px}.privacy-note span{font-size:10px;color:#a4b9b4;line-height:1.5}.privacy-note b{color:#c5eee2}.file-list{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}.list-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.list-heading h3{font-size:14px}.file-row{display:flex;align-items:center;gap:11px;padding:11px 0;border-top:1px solid #2a3240}.file-icon{width:34px;height:34px;border-radius:9px;background:#2a2540;color:#bba8ff;display:grid;place-items:center}.file-info{min-width:0;flex:1}.file-info b{display:block;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.file-info small{color:#8490a3;font-size:10px}.remove-file{border:0;background:none;color:#9aa4b4;font-size:18px}.back-btn{background:none;border:0;color:#bba8ff;margin-bottom:20px}.detail-head{display:flex;justify-content:space-between;gap:20px;align-items:center}.detail-head h1{font:600 30px 'Space Grotesk';margin:0 0 6px}.detail-head p{color:var(--muted);margin:0}.detail-panel{margin-top:22px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}.detail-panel h3{font:600 16px 'Space Grotesk';margin:0 0 15px}.audio-item{padding:14px 0;border-top:1px solid var(--line)}.audio-item:first-of-type{border-top:0}.audio-top{display:flex;align-items:center;gap:10px}.audio-top audio{width:100%;height:34px}.audio-name{font-size:12px;font-weight:600;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis}.wave-canvas{width:100%;height:64px;display:block;margin-top:10px;background:#111722;border-radius:8px}.future-note{padding:16px;background:#211e30;border:1px solid #3d3557;border-radius:12px;color:#b9aed7;font-size:12px;line-height:1.6;margin-top:15px}footer{border-top:1px solid var(--line);padding:18px 0 24px;color:#697589;font-size:10px;letter-spacing:.6px}footer span{color:#a78bfa;padding:0 5px}.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,20px);opacity:0;background:#e4dcff;color:#1a1625;padding:11px 17px;border-radius:10px;font-weight:700;font-size:12px;transition:.2s;z-index:20;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:1050px){.main{padding:0 28px}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.import-layout{grid-template-columns:minmax(0,1fr) 245px}.welcome-art{width:190px}}
+@media(max-width:760px){.sidebar{width:250px;transform:translateX(-100%);transition:.2s;box-shadow:20px 0 60px #0008}.sidebar.open{transform:translateX(0)}.main{margin:0;padding:0 17px}.topbar{height:62px;gap:12px}.mobile-brand{display:block;background:none;border:0;color:#ddd;font-size:19px}.crumb{font-size:8px;letter-spacing:1px;flex:1}.local-pill{font-size:9px;padding:7px 9px}.install-btn{font-size:10px;padding:7px}.view{padding:23px 0 40px}.welcome{padding:25px 23px;min-height:205px}.welcome h1{font-size:29px}.welcome p{font-size:11px;max-width:290px}.welcome-art{position:absolute;right:-95px;opacity:.45}.desktop-only{display:none}.section-head{margin:27px 0 14px;gap:10px}.section-head h2{font-size:17px}.section-head p{font-size:10px}.primary-btn{padding:10px 12px;font-size:11px}.stats{gap:8px}.stat-card{padding:13px 11px}.stat-card span{font-size:8px;letter-spacing:.7px}.stat-card strong{font-size:23px}.stat-card small{font-size:8px}.project-grid{grid-template-columns:1fr 1fr;gap:9px}.project-card{padding:11px}.project-cover{height:70px}.project-card h3{font-size:12px}.project-meta{font-size:9px}.project-type{font-size:9px}.recent-head .text-btn{font-size:10px}.page-title{align-items:flex-start;gap:10px}.page-title h1{font-size:28px}.page-title p{font-size:11px}.import-layout{grid-template-columns:1fr}.import-aside{grid-template-columns:1fr 1fr}.privacy-note{grid-column:1/-1}.dropzone{min-height:220px}.dropzone h2{font-size:16px}.detail-head{align-items:flex-start;flex-direction:column}.detail-head h1{font-size:25px}}
+@media(max-width:420px){.project-grid{grid-template-columns:1fr}.project-cover{height:80px}.import-aside{grid-template-columns:1fr}.privacy-note{grid-column:auto}.stats{grid-template-columns:1fr 1fr}.stat-card:last-child{grid-column:1/-1}.crumb{font-size:7px}.top-actions{gap:5px}}
+
+/* V6 responsive analysis panel */
+.analysis-tools{display:grid;gap:12px;margin-top:12px}
+.analysis-tools label{font-weight:600}
+.analysis-tools select{width:100%;padding:12px;border:1px solid rgba(150,150,170,.25);border-radius:10px;background:#171c28;color:inherit}
+.analysis-actions{display:flex;gap:10px;flex-wrap:wrap}
+.analysis-actions button{flex:1;min-width:160px}
+.analysis-status{padding:10px 12px;border-radius:9px;background:rgba(130,140,160,.12);font-size:.9rem}
+.analysis-status[data-kind="success"]{background:rgba(50,170,120,.13);color:#77d9ae}
+.analysis-status[data-kind="warning"],.analysis-status[data-kind="error"]{background:rgba(220,150,50,.13);color:#f0bf79}
+.analysis-result{margin-top:12px;padding:14px;border:1px solid rgba(150,150,170,.2);border-radius:12px;overflow:hidden}
+.analysis-result p,.limitations{color:var(--muted,#aab0c0);font-size:.9rem;line-height:1.5}
+.note-table{max-height:340px;overflow:auto;margin:12px 0;border:1px solid rgba(150,150,170,.18);border-radius:8px}
+.note-row{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:8px;padding:8px 10px;border-bottom:1px solid rgba(150,150,170,.12);font-size:.84rem}
+.note-head{position:sticky;top:0;background:#202637;font-weight:700}
+@media(max-width:600px){.analysis-actions{flex-direction:column}.analysis-actions button{width:100%}.note-row{font-size:.75rem;gap:4px;padding:8px 6px}}
+
+/* V6.2 install dialog and mobile-friendly install guidance */
+.install-dialog{width:min(560px,calc(100vw - 28px));max-height:min(82vh,760px);overflow:auto;background:#171c27;color:#f2f4f8;border:1px solid #45405e;border-radius:18px;padding:22px;box-shadow:0 24px 90px #000b}
+.install-dialog::backdrop{background:#05070bcc;backdrop-filter:blur(4px)}
+.install-dialog-head{display:flex;align-items:center;gap:13px;position:relative;padding-right:30px}
+.install-dialog-head img{border-radius:12px}.install-dialog-head h2{font:600 19px 'Space Grotesk';margin:0 0 4px}.install-dialog-head p{color:#aab3c2;font-size:12px;margin:0;line-height:1.5}
+.dialog-close{position:absolute;right:0;top:0;border:0;background:transparent;color:#cbd2df;font-size:25px}
+.install-instructions{margin:18px 0;color:#cbd2df;font-size:13px;line-height:1.65}.install-instructions p{margin:14px 0 5px}.install-instructions ol{padding-left:22px;margin:6px 0 14px}.install-instructions li{padding:2px 0}.install-note{background:#242139;border:1px solid #42395d;border-radius:10px;padding:11px;color:#c5b8e7;font-size:11px}
+.install-dialog-actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+@media(max-width:600px){.install-dialog{padding:17px}.install-dialog-actions>*{flex:1}.install-btn{white-space:nowrap}}
+
+/* V6.4 experimental polyphonic piano-roll */
+.piano-roll{margin:16px 0;padding:14px;background:#111722;border:1px solid #303949;border-radius:12px;overflow:hidden}
+.piano-scale{display:flex;justify-content:space-between;color:#929bad;font-size:10px;margin:0 42px 10px 78px}
+.piano-row{display:grid;grid-template-columns:68px minmax(0,1fr) 22px;gap:10px;align-items:center;min-height:27px;border-top:1px solid #252d3b}
+.piano-row>b{font-size:11px;color:#d9deea;font-weight:600}
+.piano-row>small{font-size:10px;color:#929bad;text-align:right}
+.piano-lane{height:18px;position:relative;background:repeating-linear-gradient(90deg,#1b2431 0,#1b2431 calc(10% - 1px),#303949 calc(10% - 1px),#303949 10%);border-radius:4px}
+.piano-note{position:absolute;top:3px;height:12px;min-width:3px;border-radius:4px;background:linear-gradient(90deg,#9c83ee,#6fd2ca);box-shadow:0 0 7px #8d79d455}
+.analysis-actions{display:flex;gap:9px;flex-wrap:wrap}
+.analysis-actions button{flex:1 1 160px}
+@media(max-width:620px){.piano-roll{padding:9px}.piano-row{grid-template-columns:54px minmax(0,1fr) 18px;gap:6px}.piano-row>b{font-size:10px}.piano-scale{margin-left:60px;margin-right:24px}}
+
+/* V6.6 editable note-event table */
+.note-editor{margin:18px 0;padding:16px;border:1px solid #34304a;border-radius:14px;background:#151b27}
+.note-editor-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}
+.note-editor-head h4{margin:0 0 5px;font:600 16px 'Space Grotesk';color:#f2f4f8}
+.note-editor-head p{margin:0;color:#929bad;font-size:12px}
+.editor-count{font-size:11px;color:#c9bcff;background:#28213e;border:1px solid #51427b;padding:5px 9px;border-radius:20px;white-space:nowrap}
+.editor-table-wrap{max-height:360px;overflow:auto;border:1px solid #2b3443;border-radius:9px}
+.editor-table{width:100%;border-collapse:collapse;min-width:420px}
+.editor-table th,.editor-table td{padding:8px 10px;text-align:left;border-bottom:1px solid #293241;font-size:12px}
+.editor-table th{position:sticky;top:0;background:#202838;color:#aeb8ca;z-index:1}
+.editor-table td input,.editor-add-row input{width:100%;min-width:72px;background:#0f1520;color:#f2f4f8;border:1px solid #3a4558;border-radius:6px;padding:7px}
+.delete-note-btn{width:29px;height:29px;border:1px solid #68404c;border-radius:7px;background:#30202a;color:#ffb4c1;font-size:19px}
+.editor-add-row{display:flex;align-items:end;gap:9px;flex-wrap:wrap;margin:13px 0}
+.editor-add-row label{display:grid;gap:5px;color:#aeb8ca;font-size:11px;min-width:90px;flex:1}
+.editor-add-row button{min-height:35px}
+.editor-feedback{font-size:11px;color:#aab4c5;margin:10px 0 0}
+@media(max-width:620px){.note-editor{padding:11px}.editor-add-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.editor-add-row button{grid-column:1/-1}.note-editor-head h4{font-size:14px}}
+
+/* V6.7 score preview and print layout */
+.score-preview-tools{display:flex;gap:9px;align-items:end;flex-wrap:wrap;margin:18px 0 12px}
+.score-preview-tools label{display:grid;gap:5px;color:#aeb8ca;font-size:11px}
+.score-preview-tools select{background:#0f1520;color:#f2f4f8;border:1px solid #3a4558;border-radius:7px;padding:8px;min-width:95px}
+.score-preview-wrap{margin:12px 0 18px;border:1px solid #343d4d;border-radius:12px;overflow:hidden;background:#f7f5ed}
+.score-preview-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;background:#202838;color:#f2f4f8}
+.score-preview-head h4{margin:0;font:600 14px 'Space Grotesk'}
+.score-preview-head span{font-size:10px;color:#aeb8ca}
+.score-preview{overflow:auto;min-height:190px;padding:10px}
+.staff-svg{display:block;max-width:none;height:auto}
+.score-paper{fill:#fffdf6}
+.staff-line,.ledger-line{stroke:#292929;stroke-width:1}
+.ledger-line{stroke-width:.9}
+.bar-line{stroke:#888;stroke-width:.8;stroke-dasharray:3 3}
+.clef-glyph{font:76px serif;fill:#111}
+.note-head{fill:#151515;stroke:#151515;stroke-width:1}
+.note-stem{stroke:#151515;stroke-width:1.4}
+.accidental{font:18px serif;fill:#111}
+.bar-label,.score-caption{font:10px sans-serif;fill:#666}
+@media print{
+ @page{size:landscape;margin:12mm}
+ body{background:#fff!important;color:#111!important}
+ .sidebar,.topbar,.back-btn,.detail-head button,.analysis-actions,.note-editor,.score-preview-tools,.editor-feedback,.limitations,.toast,footer{display:none!important}
+ .main{margin:0!important;padding:0!important;max-width:none!important}
+ .view{display:block!important;padding:0!important}
+ .detail-panel{border:0!important;background:#fff!important;padding:0!important}
+ .score-preview-wrap{border:0!important;break-inside:avoid}
+ .score-preview-head{background:#fff!important;color:#111!important;padding:0 0 8px}
+ .score-preview-head span{color:#555!important}
+ .score-preview{overflow:visible!important;padding:0}
+ .staff-svg{width:100%!important;height:auto!important}
+}
+@media(max-width:620px){.score-preview-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.score-preview-tools button{min-height:38px}.score-preview-head{align-items:flex-start;flex-direction:column}}
+
+
+/* V6.8 / V7.0 : lecture rythmique de la portée et export MIDI */
+.note-head-filled{fill:#151515;stroke:#151515;stroke-width:1}
+.note-head-open{fill:#fff;stroke:#151515;stroke-width:2}
+.note-stem{stroke:#151515;stroke-width:1.7}
+.note-flag{fill:none;stroke:#151515;stroke-width:2;stroke-linecap:round}
+.beat-guide{stroke:#d9dce4;stroke-width:1;stroke-dasharray:2 5}
+.bar-number{font:11px sans-serif;fill:#5f6674}
+
+
+.privacy-strip{display:flex;gap:12px;align-items:flex-start;margin:12px 18px;padding:13px 15px;border:1px solid #cfe8dc;background:#f1faf5;border-radius:12px;color:#174b36}
+.privacy-strip small{display:block;margin-top:4px;line-height:1.45;color:#426657}
+.privacy-dot{width:10px;height:10px;flex:0 0 10px;border-radius:50%;background:#249b68;margin-top:4px}
+.local-backup-btn{font-size:12px;padding:8px 10px}
+@media(max-width:650px){.top-actions{gap:5px}.local-backup-btn{padding:7px 8px;font-size:11px}.privacy-strip{margin:10px 12px}}
+</style>
+  <title>STEM2CORE V7.5 — Studio audio</title>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home" aria-label="STEM2CORE accueil"><span class="brand-mark">S</span><span>STEM<span class="brand-light">2</span>CORE<small>AUDIO TO SHEET MUSIC</small></span></a>
+      <nav><button class="nav-item active" data-view="home"><span>▦</span> Tableau de bord</button><button class="nav-item" data-view="projects"><span>♫</span> Mes projets</button><button class="nav-item" data-view="import"><span>＋</span> Importer un audio</button></nav>
+      <div class="sidebar-bottom"><div class="status-dot"></div><span>Studio local prêt</span><div class="version">V1.0 · Prototype</div></div>
+    </aside>
+    <main class="main"><div style="margin:12px 18px;padding:12px 14px;border-radius:12px;background:#fff3cd;color:#614700;font-size:14px">IMPORT AUDIO LOCAL DISPONIBLE — sélectionne ton fichier ci-dessous. Le moteur IA en ligne nécessite encore un serveur STEM2CORE configuré.</div><div class="privacy-strip"><span class="privacy-dot"></span><div><b>Connexion Internet à l’ouverture</b><small>STEM2CORE vérifie l’accès au réseau quand l’application s’ouvre. Le moteur IA nécessite une adresse de serveur HTTPS et une clé privée ; elles ne sont pas encore configurées. Tes fichiers restent sur cet appareil tant que tu ne lances pas volontairement une analyse en ligne.</small></div></div>
+      <header class="topbar"><button class="mobile-brand" id="mobileMenu" aria-label="Menu">☰</button><div class="crumb">ESPACE DE TRAVAIL <span>/</span> <b id="crumbTitle">Tableau de bord</b></div><div class="top-actions">
+        <span class="local-pill" id="networkState" role="status" title="État de la connexion Internet">Vérification Internet…</span>
+        <button id="backupExportBtn" class="outline-btn local-backup-btn" type="button">Sauvegarder</button>
+        <button id="backupImportBtn" class="outline-btn local-backup-btn" type="button">Restaurer</button>
+        <input id="backupImportFile" type="file" accept="application/json,.json" hidden>
+        <button id="installBtn" class="install-btn" type="button" hidden>Mode local</button>
+      </div></header>
+      <section id="homeView" class="view">
+        <div class="welcome"><div><div class="eyebrow">VOTRE ATELIER MUSICAL</div><h1>Donnez une partition<br class="desktop-only"> à vos idées.</h1><p>Importez un morceau ou des pistes séparées. Organisez vos sessions et préparez vos futures transcriptions.</p></div><div class="welcome-art"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="staff">♪ ♫ ♩ ♬</div></div></div>
+        <div class="section-head"><div><h2>Votre espace de travail</h2><p>Retrouvez vos enregistrements et vos sessions.</p></div><button class="primary-btn" id="newProjectBtn">＋ Nouveau projet</button></div>
+        <div class="stats"><div class="stat-card"><span>PROJETS</span><strong id="projectCount">0</strong><small>Dans cet espace</small></div><div class="stat-card"><span>FICHIERS AUDIO</span><strong id="audioCount">0</strong><small>Importés localement</small></div><div class="stat-card"><span>TRANSCRIPTIONS</span><strong>—</strong><small>Disponibles dans une prochaine version</small></div></div>
+        <div class="section-head recent-head"><div><h2>Projets récents</h2><p>Vos derniers travaux.</p></div><button class="text-btn" data-goto="projects">Voir tous les projets →</button></div>
+        <div id="recentProjects" class="project-grid"></div>
+        <div class="empty-state" id="emptyHome"><div class="empty-icon">♫</div><h3>Votre studio commence ici</h3><p>Créez un projet et importez votre premier fichier audio.</p><button class="primary-btn" data-goto="import">Importer un audio</button></div>
+      </section>
+      <section id="projectsView" class="view" hidden><div class="page-title"><div><div class="eyebrow">BIBLIOTHÈQUE</div><h1>Mes projets</h1><p>Centralisez vos morceaux, vos stems et vos sessions.</p></div><button class="primary-btn" data-goto="import">＋ Importer un audio</button></div><div id="allProjects" class="project-grid"></div><div class="empty-state" id="emptyProjects"><div class="empty-icon">♫</div><h3>Aucun projet pour le moment</h3><p>Importez un fichier audio pour créer votre premier projet.</p></div></section>
+      <section id="importView" class="view" hidden><div class="page-title"><div><div class="eyebrow">NOUVELLE SESSION</div><h1>Importer un audio</h1><p>Ajoutez un morceau complet ou des stems déjà séparés.</p></div></div>
+        <div class="import-layout"><div class="import-main"><div id="dropzone" class="dropzone"><div class="upload-icon">⇧</div><h2>Ajouter un fichier audio</h2><p>Clique directement sur le bouton ci-dessous pour ouvrir les fichiers de ton ordinateur ou téléphone</p><input id="fileInput" type="file" accept="audio/*,.wav,.mp3,.flac,.m4a,.aac,.aiff,.aif,.ogg,.opus,.webm,.mp4,.3gp,.mpga,.mpeg" multiple aria-label="Choisir des fichiers audio" style="display:block;max-width:100%;width:100%;padding:12px;background:#10151e;color:#f2f4f8;border:1px solid #7865b4;border-radius:9px;cursor:pointer"><small>Formats : WAV · MP3 · FLAC · M4A · AAC · AIFF · OGG</small></div>
+          <div id="fileList" class="file-list" hidden><div class="list-heading"><h3>Fichiers sélectionnés</h3><button class="text-btn" id="addMoreBtn">＋ Ajouter</button></div><div id="filesContainer"></div></div>
+          <div class="form-card"><label for="projectName">Nom du projet</label><input id="projectName" type="text" maxlength="80" placeholder="Ex. Gospel — répétition du dimanche"><label for="sourceType">Type de source</label><select id="sourceType"><option value="full">Morceau complet</option><option value="stems">Stems déjà séparés</option></select><div class="hint">Vous pourrez ajouter d’autres pistes à ce projet plus tard.</div><button id="createProjectBtn" class="primary-btn wide" disabled>Créer le projet</button></div></div>
+          <aside class="import-aside"><div class="info-card"><div class="info-symbol">✦</div><h3>Préparez vos transcriptions</h3><p>STEM2CORE organisera vos fichiers par projet. L’analyse automatique et la génération de partitions seront ajoutées dans les prochaines étapes.</p></div><div class="supported-card"><h3>Instruments ciblés</h3><div class="instrument-tags"><span>Voix & chœurs</span><span>Piano</span><span>Basse</span><span>Batterie</span><span>Guitare</span><span>Cuivres</span></div></div><div class="privacy-note">♢ <span><b>Confidentialité</b><br>Les fichiers sélectionnés sont conservés sur cet appareil. Aucun envoi audio n’a lieu à l’ouverture.</span></div></aside></div>
+      </section>
+      <section id="detailView" class="view" hidden><button class="back-btn" id="backProjects">← Retour aux projets</button><div id="projectDetail"></div></section>
+      <footer>STEM2CORE <span>·</span> Votre musique, prête à être transcrite.</footer>
+    </main>
+  </div>
+  
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>window.STEM2CORE_LOCAL_ONLY=false;
+const $=s=>document.querySelector(s);const $$=s=>[...document.querySelectorAll(s)];
+const DB_KEY='stem2core_projects_v1';const AUDIO_DB='stem2core_audio_v1';const sessionAudio=new Map();let projects=loadProjects(),pendingFiles=[],deferredPrompt=null,currentProject=null;
+function openAudioDB(){return new Promise((resolve,reject)=>{const req=indexedDB.open(AUDIO_DB,1);req.onupgradeneeded=()=>req.result.createObjectStore('audio',{keyPath:'id'});req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
+async function storeAudio(id,file){try{const db=await openAudioDB();return await new Promise((resolve,reject)=>{const tx=db.transaction('audio','readwrite');tx.objectStore('audio').put({id,blob:file,name:file.name,type:file.type,size:file.size});tx.oncomplete=()=>{db.close();resolve()};tx.onerror=()=>{db.close();reject(tx.error)}})}catch(err){sessionAudio.set(id,{id,blob:file,name:file.name,type:file.type||'application/octet-stream',size:file.size});return 'session-only'}}
+async function getAudio(id){if(sessionAudio.has(id))return sessionAudio.get(id);try{const db=await openAudioDB();return await new Promise((resolve,reject)=>{const tx=db.transaction('audio','readonly');const req=tx.objectStore('audio').get(id);req.onsuccess=()=>{db.close();resolve(req.result||null)};req.onerror=()=>{db.close();reject(req.error)}})}catch{return null}}
+function loadProjects(){try{return JSON.parse(localStorage.getItem(DB_KEY)||'[]')}catch{return []}}
+function save(){localStorage.setItem(DB_KEY,JSON.stringify(projects));render()}
+function id(){return crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random()}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]))}
+function fmtSize(n){if(n<1024*1024)return (n/1024).toFixed(0)+' Ko';return (n/1024/1024).toFixed(1)+' Mo'}
+function fmtDate(d){return new Date(d).toLocaleDateString('fr-FR',{day:'2-digit',month:'short',year:'numeric'})}
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400)}
+function show(view){$$('.view').forEach(x=>x.hidden=true);$('#'+view+'View').hidden=false;$$('.nav-item').forEach(x=>x.classList.toggle('active',x.dataset.view===view.replace('View','')));$('#crumbTitle').textContent=({home:'Tableau de bord',projects:'Mes projets',import:'Importer un audio',detail:'Détail du projet'})[view.replace('View','')]||'Projet';$('.sidebar').classList.remove('open');window.scrollTo(0,0)}
+function go(view){show(view+'View')}
+function card(p){return `<article class="project-card" data-open="${p.id}"><div class="project-cover">♫</div><h3>${esc(p.name)}</h3><div class="project-meta"><span>${p.files.length} fichier(s)</span><span>${fmtDate(p.updated)}</span></div><span class="project-type">${p.source==='stems'?'Stems séparés':'Morceau complet'}</span></article>`}
+function render(){const recent=[...projects].sort((a,b)=>b.updated-a.updated);$('#projectCount').textContent=projects.length;$('#audioCount').textContent=projects.reduce((n,p)=>n+p.files.length,0);$('#recentProjects').innerHTML=recent.slice(0,3).map(card).join('');$('#allProjects').innerHTML=recent.map(card).join('');$('#emptyHome').hidden=projects.length>0;$('#emptyProjects').hidden=projects.length>0;$$('[data-open]').forEach(el=>el.addEventListener('click',()=>openProject(el.dataset.open)))}
+function chooseFiles(files){
+  const incoming=[...files];
+  const valid=incoming.filter(f=>(f.type||'').toLowerCase().startsWith('audio/')||/\.(wav|mp3|flac|m4a|aac|aiff|aif|ogg|opus|webm|mp4|3gp)$/i.test(f.name||'')||f.type==='application/octet-stream');
+  const rejected=incoming.length-valid.length;
+  if(rejected)toast(`${rejected} fichier(s) ignoré(s) : format non reconnu`);
+  if(!valid.length){toast('Aucun audio reconnu. Essaie un MP3, WAV ou M4A.');return;}
+  pendingFiles=[...pendingFiles,...valid];
+  drawPending();
+  if(valid.length)$('#projectName').value=$('#projectName').value||valid[0].name.replace(/\.[^.]+$/,'');
+}
+function drawPending(){const wrap=$('#fileList');wrap.hidden=!pendingFiles.length;$('#filesContainer').innerHTML=pendingFiles.map((f,i)=>`<div class="file-row"><div class="file-icon">♫</div><div class="file-info"><b>${esc(f.name)}</b><small>${fmtSize(f.size)} · ${f.type||'audio'}</small></div><button class="remove-file" data-remove="${i}" aria-label="Retirer">×</button></div>`).join('');$$('[data-remove]').forEach(b=>b.onclick=()=>{pendingFiles.splice(+b.dataset.remove,1);drawPending();$('#createProjectBtn').disabled=!pendingFiles.length}) ;$('#createProjectBtn').disabled=!pendingFiles.length}
+function newImport(){pendingFiles=[];drawPending();$('#projectName').value='';$('#sourceType').value='full';go('import')}
+async function createProject(){if(!pendingFiles.length)return;const btn=$('#createProjectBtn');btn.disabled=true;btn.textContent='Enregistrement…';try{const name=$('#projectName').value.trim()||pendingFiles[0].name.replace(/\.[^.]+$/,'');const p={id:id(),name,source:$('#sourceType').value,created:Date.now(),updated:Date.now(),files:[]};let sessionOnly=false;for(const f of pendingFiles){const fileId=id();const stored=await storeAudio(fileId,f);if(stored==='session-only')sessionOnly=true;p.files.push({id:fileId,name:f.name,size:f.size,type:f.type,lastModified:f.lastModified})}projects.unshift(p);save();pendingFiles=[];drawPending();toast(sessionOnly?'Projet créé pour cette session — stockage local limité':'Projet créé et fichiers enregistrés sur cet appareil');openProject(p.id)}catch(err){console.error(err);toast('Enregistrement impossible : espace de stockage insuffisant ou indisponible')}finally{btn.textContent='Créer le projet';btn.disabled=!pendingFiles.length}}
+function openProject(pid){const p=projects.find(x=>x.id===pid);if(!p)return;currentProject=p;const files=p.files.map(f=>`<div class="audio-item"><div class="audio-top"><span class="file-icon">♫</span><span class="audio-name">${esc(f.name)}</span><span class="project-meta">${fmtSize(f.size)}</span></div><div class="future-note">Fichier référencé dans ce projet. Pour cette V1 locale, sélectionnez à nouveau le fichier depuis votre appareil pour l’écouter et afficher sa forme d’onde.</div></div>`).join('');$('#projectDetail').innerHTML=`<div class="detail-head"><div><div class="eyebrow">PROJET MUSICAL</div><h1>${esc(p.name)}</h1><p>Créé le ${fmtDate(p.created)} · ${p.source==='stems'?'Stems séparés':'Morceau complet'}</p></div><button class="outline-btn" id="addToProject">＋ Ajouter des fichiers</button></div><div class="detail-panel"><h3>Pistes audio · ${p.files.length}</h3>${files}<button class="outline-btn" id="listenFiles">Lire les fichiers du projet</button><input id="listenInput" type="file" accept="audio/*,.wav,.mp3,.flac,.m4a,.aac,.aiff,.aif,.ogg,.opus,.webm,.mp4,application/octet-stream,*/*" multiple hidden></div><div class="detail-panel"><h3>Analyse audio STEM2CORE</h3><div class="analysis-tools" id="analysisTools">
+<div class="remote-config" style="border:1px solid #d9e1ec;border-radius:12px;padding:12px;margin:10px 0">
+<b>Connexion au moteur STEM2CORE</b>
+<p style="font-size:13px;margin:6px 0">Connexion Internet disponible lorsque STEM2CORE est ouverte. Aucun échange en arrière-plan ; les fichiers ne sont envoyés qu’au lancement volontaire d’une analyse.</p>
+<label for="apiUrlInput">Adresse HTTPS du serveur</label><input id="apiUrlInput" type="url" inputmode="url" placeholder="https://ton-serveur.example.com">
+<label for="apiKeyInput">Clé privée d'accès</label><input id="apiKeyInput" type="password" autocomplete="off" placeholder="Clé fournie lors du déploiement">
+<div class="analysis-actions"><button class="outline-btn" id="saveApiConfigBtn" type="button">Enregistrer</button><button class="outline-btn" id="testApiBtn" type="button">Tester la connexion</button></div>
+<label style="display:flex;gap:8px;align-items:flex-start;margin-top:10px"><input id="allowUploadConsent" type="checkbox" style="width:auto;margin-top:3px"><span>J'autorise l'envoi du fichier audio ou des données de partition au serveur uniquement lorsque je lance une analyse ou un export.</span></label>
+<small style="display:block;margin-top:7px;color:#64748b">Aucune synchronisation, aucun suivi et aucune analyse en arrière-plan.</small>
+</div>
+<p class="future-note">Configure le serveur HTTPS pour activer les analyses en ligne.</p>
+<label for="analysisFile">Piste à analyser</label><select id="analysisFile"></select>
+<div class="analysis-actions"><button class="outline-btn" id="separateBtn">Séparer les stems</button><button class="outline-btn" id="pitchBtn">Détecter une mélodie</button><button class="primary-btn" id="polyBtn">Analyse polyphonique (test)</button></div>
+<label for="scoreTempo">Tempo de la partition (BPM)</label><input id="scoreTempo" type="number" min="20" max="300" step="1" value="120">
+<div id="analysisStatus" class="analysis-status" role="status" aria-live="polite">API non vérifiée</div><div id="analysisResults"></div></div></div>`;$('#addToProject').onclick=()=>{currentProject=p;$('#listenInput').click()};$('#listenFiles').onclick=()=>loadProjectAudio(p);$('#listenInput').onchange=e=>{if(e.target.files.length)attachPreview(e.target.files);e.target.value=''};show('detailView');mountAnalysisTools(p)}
+async function loadProjectAudio(p){const panel=$('#projectDetail .detail-panel');if(!panel)return;let list=panel.querySelector('.preview-list');if(list)list.remove();list=document.createElement('div');list.className='preview-list';panel.append(list);for(const meta of p.files){const record=await getAudio(meta.id);if(!record)continue;const file=new File([record.blob],record.name,{type:record.type});addAudioPreview(file,list)}if(!list.children.length)list.textContent='Les fichiers audio ne sont pas disponibles dans le stockage local.'}
+function attachPreview(files){const panel=$('#projectDetail .detail-panel');if(!panel)return;let list=panel.querySelector('.preview-list');if(!list){list=document.createElement('div');list.className='preview-list';panel.append(list)}[...files].filter(f=>f.type.startsWith('audio/')||/\.(wav|mp3|flac|m4a|aiff|ogg)$/i.test(f.name)).forEach(f=>addAudioPreview(f,list))}
+function addAudioPreview(f,list){const wrap=document.createElement('div');wrap.className='audio-item';const title=document.createElement('div');title.className='audio-name';title.textContent=f.name;const audio=document.createElement('audio');audio.controls=true;audio.src=URL.createObjectURL(f);audio.style.width='100%';const canvas=document.createElement('canvas');canvas.className='wave-canvas';canvas.width=1000;canvas.height=64;wrap.append(title,audio,canvas);list.append(wrap);drawWave(f,canvas)}
+async function drawWave(file,canvas){try{const ctx=canvas.getContext('2d');ctx.fillStyle='#111722';ctx.fillRect(0,0,canvas.width,canvas.height);const ac=new (window.AudioContext||window.webkitAudioContext)();const buf=await ac.decodeAudioData(await file.arrayBuffer());const data=buf.getChannelData(0);const step=Math.max(1,Math.floor(data.length/canvas.width));ctx.strokeStyle='#9f89ec';ctx.lineWidth=1;ctx.beginPath();for(let x=0;x<canvas.width;x++){let min=1,max=-1;for(let j=0;j<step;j++){const v=data[x*step+j]||0;if(v<min)min=v;if(v>max)max=v}ctx.moveTo(x,(1+min)*canvas.height/2);ctx.lineTo(x,(1+max)*canvas.height/2)}ctx.stroke();await ac.close()}catch{const c=canvas.getContext('2d');c.fillStyle='#8994a7';c.font='12px sans-serif';c.fillText('Aperçu de forme d’onde indisponible pour ce format',15,35)}}
+$$('.nav-item').forEach(b=>b.onclick=()=>go(b.dataset.view));$$('[data-goto]').forEach(b=>b.onclick=()=>b.dataset.goto==='import'?newImport():go(b.dataset.goto));$('#newProjectBtn').onclick=newImport;
+function openAudioPicker(){
+  const input=$('#fileInput');
+  if(!input){toast('Sélecteur audio indisponible');return;}
+  try{
+    input.value='';
+    if(typeof input.showPicker==='function') input.showPicker();
+    else input.click();
+  }catch(err){
+    try{input.click();}catch(second){console.error('Android file picker:',second);toast('Le sélecteur Android est bloqué. Ouvre ce fichier avec Chrome, puis réessaie.');}
+  }
+}
+const browseButton=$('#browseBtn');if(browseButton)browseButton.addEventListener('click',openAudioPicker);
+const addMoreButton=$('#addMoreBtn');if(addMoreButton)addMoreButton.onclick=openAudioPicker;
+$('#fileInput').addEventListener('change',e=>{
+  const files=Array.from(e.currentTarget.files||[]);
+  if(!files.length){toast('Aucun fichier sélectionné');return;}
+  try{chooseFiles(files);}catch(err){console.error('Import audio:',err);toast('Erreur pendant la lecture du fichier : '+(err.message||'format non pris en charge'));
+  }
+  e.currentTarget.value='';
+});
+$('#createProjectBtn').onclick=createProject;$('#backProjects').onclick=()=>go('projects');$('#mobileMenu').onclick=()=>$('.sidebar').classList.toggle('open');
+const dz=$('#dropzone');['dragenter','dragover'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.add('dragover')}));['dragleave','drop'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.remove('dragover')}));dz.addEventListener('drop',e=>chooseFiles(e.dataTransfer.files));
+const installDialog=$('#installDialog');
+function openInstallHelp(){if(installDialog?.showModal)installDialog.showModal();else toast('Pour installer STEM2CORE, utilisez le menu de votre navigateur.');}
+$('#installBtn').onclick=async()=>{
+  if(deferredPrompt){deferredPrompt.prompt();const choice=await deferredPrompt.userChoice;deferredPrompt=null;if(choice?.outcome==='accepted')toast('Installation de STEM2CORE lancée');return;}
+  openInstallHelp();
+};
+if($('#closeInstallDialog'))$('#closeInstallDialog').onclick=()=>installDialog?.close();
+if($('#doneInstallDialog'))$('#doneInstallDialog').onclick=()=>installDialog?.close();
+if($('#nativeInstallAction'))$('#nativeInstallAction').onclick=async()=>{
+  if(!deferredPrompt)return;
+  deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;installDialog?.close();
+};
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();deferredPrompt=e;$('#nativeInstallAction').hidden=false;$('#installBtn').textContent='Installer maintenant';
+});
+window.addEventListener('appinstalled',()=>{deferredPrompt=null;$('#installBtn').textContent='STEM2CORE installée';$('#nativeInstallAction').hidden=true;toast('STEM2CORE est installée sur cet appareil');});
+function updateInstallState(){
+  const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+  if(standalone){$('#installBtn').textContent='STEM2CORE installée';$('#installBtn').setAttribute('aria-label','STEM2CORE est installée');}
+}
+updateInstallState();
+render();
+
+
+// V6: connect the project workspace to the local STEM2CORE API.
+const STEM2CORE_CONFIG_KEY = "stem2core_remote_config_v1";
+function updateNetworkState(message){const n=$('#networkState');if(n)n.textContent=message||(navigator.onLine?'Réseau actif':'Hors connexion');}
+window.addEventListener('online',()=>{updateNetworkState('Réseau actif');checkBackendOnOpen();});
+window.addEventListener('offline',()=>updateNetworkState('Hors connexion'));
+async function checkBackendOnOpen(){
+  updateNetworkState(navigator.onLine?'Réseau actif · moteur à vérifier':'Hors connexion');
+  const cfg=getRemoteConfig();
+  if(!navigator.onLine||!cfg.apiUrl||!cfg.apiKey){if(navigator.onLine)updateNetworkState('Réseau actif · serveur à configurer');return;}
+  const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),7000);
+  try{
+    const r=await fetch(`${cfg.apiUrl}/health`,{headers:{'X-API-Key':cfg.apiKey},cache:'no-store',signal:controller.signal});
+    if(!r.ok)throw new Error(`HTTP ${r.status}`);
+    const d=await r.json().catch(()=>({}));
+    updateNetworkState(`Serveur STEM2CORE connecté${d.version?' · '+d.version:''}`);
+  }catch(e){updateNetworkState('Réseau actif · serveur STEM2CORE inaccessible');}
+  finally{clearTimeout(timeout);}
+}
+
+
+let activeAnalysisController = null;
+function getRemoteConfig(){try{return JSON.parse(localStorage.getItem(STEM2CORE_CONFIG_KEY)||"{}")}catch(e){return {}}}
+updateNetworkState();checkBackendOnOpen();
+function normalizeApiUrl(value){
+  const u=new URL(String(value||"").trim());
+  if(u.protocol!=="https:" && !["localhost","127.0.0.1"].includes(u.hostname))throw new Error("L'adresse du serveur doit commencer par https://");
+  return u.origin;
+}
+function apiHeaders(){const key=getRemoteConfig().apiKey||"";return key?{"X-API-Key":key}:{} }
+async function apiFetch(path,options={}){
+  if(!activeAnalysisController)activeAnalysisController=new AbortController();
+  return fetch(`${getRemoteConfig().apiUrl}${path}`,{...options,headers:{...apiHeaders(),...(options.headers||{})},signal:activeAnalysisController.signal,cache:"no-store"});
+}
+function requireOnlineConsent(){
+  if(!getRemoteConfig().apiUrl)throw new Error("Configure l'adresse HTTPS du serveur puis enregistre-la.");
+  if(!getRemoteConfig().apiKey)throw new Error("La clé privée du serveur est manquante.");
+  if(!$("#allowUploadConsent")?.checked)throw new Error("Coche l'autorisation avant d'envoyer le fichier audio.");
+  if(!navigator.onLine)throw new Error("Aucune connexion Internet disponible.");
+}
+function stopAnalysisNetwork(){if(activeAnalysisController){activeAnalysisController.abort();activeAnalysisController=null;}}
+document.addEventListener("visibilitychange",()=>{if(document.hidden)stopAnalysisNetwork();});
+window.addEventListener("pagehide",stopAnalysisNetwork);
+
+let latestNoteEvents = [];
+function noteLabel(midi){
+  const names=["Do","Do♯","Ré","Ré♯","Mi","Fa","Fa♯","Sol","Sol♯","La","La♯","Si"];
+  return `${names[midi%12]} ${Math.floor(midi/12)-1}`;
+}
+function setAnalysisStatus(message,kind="info"){
+  const el=$("#analysisStatus"); if(el){el.textContent=message;el.dataset.kind=kind;}
+}
+async function projectFileRecord(meta){
+  const record=await getAudio(meta.id);
+  if(!record)throw new Error("Fichier absent du stockage local. Réimportez-le dans ce projet.");
+  return new File([record.blob],record.name,{type:record.type||"application/octet-stream"});
+}
+async function postAudio(endpoint,file){
+  const body=new FormData();body.append("file",file,file.name);
+  const response=await apiFetch(endpoint,{method:"POST",body});
+  const data=await response.json().catch(()=>({}));
+  if(!response.ok)throw new Error(data.detail||`Erreur API ${response.status}`);
+  return data;
+}
+async function pollSeparation(jobId){
+  for(let attempt=0;attempt<180;attempt++){
+    if(document.hidden)throw new Error("Analyse interrompue car STEM2CORE est passée en arrière-plan.");
+    const r=await apiFetch(`/api/v2/separation/jobs/${jobId}`);
+    const data=await r.json();
+    if(!r.ok)throw new Error(data.detail||"Impossible de suivre la séparation");
+    if(data.status==="completed")return data;
+    if(data.status==="failed")throw new Error(data.error||"La séparation a échoué");
+    await new Promise(resolve=>setTimeout(resolve,2000));
+  }
+  throw new Error("Délai dépassé. Vérifiez le backend.");
+}
+function setupRemoteControls(){
+  const cfg=getRemoteConfig(),url=$("#apiUrlInput"),key=$("#apiKeyInput"),save=$("#saveApiConfigBtn"),test=$("#testApiBtn");
+  if(!url||!key||!save||!test)return;
+  url.value=cfg.apiUrl||"";key.value=cfg.apiKey||"";
+  save.onclick=()=>{
+    try{
+      const apiUrl=normalizeApiUrl(url.value),apiKey=key.value.trim();
+      if(!apiKey)throw new Error("Saisis la clé privée du serveur.");
+      localStorage.setItem(STEM2CORE_CONFIG_KEY,JSON.stringify({apiUrl,apiKey}));
+      setAnalysisStatus("Configuration enregistrée. Aucun appel réseau effectué.","success");
+    }catch(e){setAnalysisStatus(e.message,"error")}
+  };
+  test.onclick=async()=>{
+    try{
+      const apiUrl=normalizeApiUrl(url.value),apiKey=key.value.trim();
+      if(!apiKey)throw new Error("Saisis la clé privée du serveur.");
+      localStorage.setItem(STEM2CORE_CONFIG_KEY,JSON.stringify({apiUrl,apiKey}));
+      stopAnalysisNetwork();activeAnalysisController=new AbortController();test.disabled=true;
+      setAnalysisStatus("Test de connexion demandé…");
+      const r=await apiFetch("/health"),d=await r.json().catch(()=>({}));
+      if(!r.ok)throw new Error(d.detail||"Serveur inaccessible ou clé refusée.");
+      setAnalysisStatus(`Connexion réussie · API ${d.version} · fournisseur ${d.separation_provider}`,"success");
+    }catch(e){setAnalysisStatus(e.name==="AbortError"?"Test interrompu.":e.message,"error")}
+    finally{test.disabled=false;activeAnalysisController=null;}
+  };
+}
+function mountAnalysisTools(project){
+  const select=$("#analysisFile"),sep=$("#separateBtn"),pitch=$("#pitchBtn"),poly=$("#polyBtn"),results=$("#analysisResults");
+  if(!select||!sep||!pitch||!poly)return;
+  if(!getRemoteConfig().apiUrl){
+    setAnalysisStatus("Mode local · configure une API HTTPS pour activer les analyses en ligne","warning");
+    const note=results.querySelector(".future-note") || results;
+    if(note)note.textContent="Tes fichiers restent sur ce téléphone. Pour analyser, configure le serveur HTTPS puis coche l'autorisation d'envoi. Aucun contact réseau automatique.";
+  }
+  select.innerHTML=project.files.map(f=>`<option value="${esc(f.id)}">${esc(f.name)}</option>`).join("");
+  results.innerHTML="";latestNoteEvents=[];
+  setupRemoteControls();
+  setAnalysisStatus(getRemoteConfig().apiUrl ? "Serveur configuré · connexion uniquement sur demande" : "Mode local · aucun échange réseau automatique","info");
+  sep.onclick=async()=>{
+    try{requireOnlineConsent();}catch(e){setAnalysisStatus(e.message,"warning");return;}
+    activeAnalysisController=new AbortController();
+    sep.disabled=true;pitch.disabled=true;setAnalysisStatus("Envoi du fichier audio…");
+    try{
+      const file=await projectFileRecord(project.files.find(f=>f.id===select.value));
+      const job=await postAudio("/api/v2/separation/jobs",file);
+      setAnalysisStatus("Traitement de séparation en cours…");
+      const done=await pollSeparation(job.id), result=done.result||{}, stems=Object.keys(result.stems||{});
+      results.innerHTML=`<div class="analysis-result"><b>Traitement terminé · ${esc(result.provider||done.provider||"")}</b><p>${esc(done.note||"")}</p>${stems.length?`<ul>${stems.map(n=>`<li>${esc(n)}</li>`).join("")}</ul>`:"<p>Aucun stem produit par ce fournisseur.</p>"}</div>`;
+      setAnalysisStatus("Traitement terminé","success");
+    }catch(e){setAnalysisStatus(e.message,"error")}
+    finally{sep.disabled=false;pitch.disabled=false}
+  };
+  pitch.onclick=async()=>{
+    try{requireOnlineConsent();}catch(e){setAnalysisStatus(e.message,"warning");return;}
+    activeAnalysisController=new AbortController();
+    sep.disabled=true;pitch.disabled=true;setAnalysisStatus("Analyse mélodique en cours…");
+    try{
+      const file=await projectFileRecord(project.files.find(f=>f.id===select.value));
+      const data=await postAudio("/api/v3/transcriptions/pitch",file);
+      latestNoteEvents=data.result?.notes||[];
+      const limits=data.result?.limitations||[];
+      results.innerHTML=`<div class="analysis-result"><b>${latestNoteEvents.length} note(s) ou événement(s) détecté(s)</b><p>Analyse monophonique expérimentale · ${esc(data.result?.method||"")}</p>${latestNoteEvents.length?`<div class="note-table"><div class="note-row note-head"><span>Note</span><span>Début</span><span>Durée</span><span>Confiance</span></div>${latestNoteEvents.slice(0,250).map(n=>`<div class="note-row"><span>${noteLabel(n.midi)}</span><span>${n.start}s</span><span>${n.duration}s</span><span>${Math.round((n.confidence||0)*100)}%</span></div>`).join("")}</div><button class="primary-btn" id="exportXmlBtn">Exporter MusicXML</button>`:"<p>Aucune note exploitable détectée.</p>"}${limits.length?`<ul class="limitations">${limits.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}</div>`;
+      const exportBtn=$("#exportXmlBtn");if(exportBtn)exportBtn.onclick=exportLatestMusicXML;
+      setAnalysisStatus("Analyse terminée · vérifiez les notes avant utilisation","success");
+    }catch(e){setAnalysisStatus(e.message,"error")}
+    finally{sep.disabled=false;pitch.disabled=false}
+  };
+  poly.onclick=async()=>{
+    try{requireOnlineConsent();}catch(e){setAnalysisStatus(e.message,"warning");return;}
+    activeAnalysisController=new AbortController();
+    sep.disabled=true;pitch.disabled=true;poly.disabled=true;
+    setAnalysisStatus("Analyse polyphonique expérimentale en cours…");
+    try{
+      const file=await projectFileRecord(project.files.find(f=>f.id===select.value));
+      const data=await postAudio("/api/v6/transcriptions/polyphonic",file);
+      const result=data.result||{};
+      latestNoteEvents=result.notes||[];
+      const tracks=result.pitch_tracks||[];
+      const maxStart=Math.max(1,...latestNoteEvents.map(n=>Number(n.start||0)+Number(n.duration||0)));
+      const trackRows=tracks.map(track=>{
+        const notes=track.notes||[];
+        const label=noteLabel(track.midi);
+        const blocks=notes.map(n=>{
+          const left=Math.max(0,Number(n.start||0)/maxStart*100);
+          const width=Math.max(.35,Number(n.duration||0)/maxStart*100);
+          return `<span class="piano-note" title="${esc(label)} · ${Number(n.start).toFixed(2)}s · ${Number(n.duration).toFixed(2)}s" style="left:${left}%;width:${width}%"></span>`;
+        }).join("");
+        return `<div class="piano-row"><b>${esc(label)}</b><div class="piano-lane">${blocks}</div><small>${notes.length}</small></div>`;
+      }).join("");
+      results.innerHTML=`<div class="analysis-result">
+        <b>${latestNoteEvents.length} note(s) détectée(s) · ${tracks.length} hauteur(s)</b>
+        <p>Analyse spectrale expérimentale · ${esc(result.engine||"")} · ${Number(result.duration||0).toFixed(1)} s</p>
+        <div class="piano-roll" role="img" aria-label="Visualisation temporelle des notes détectées">
+          <div class="piano-scale"><span>0 s</span><span>${(maxStart/2).toFixed(1)} s</span><span>${maxStart.toFixed(1)} s</span></div>
+          ${trackRows||"<p>Aucune note exploitable détectée.</p>"}
+        </div>
+        <section class="note-editor" aria-labelledby="noteEditorTitle">
+          <div class="note-editor-head"><div><h4 id="noteEditorTitle">Corriger les notes détectées</h4><p>Modifiez la hauteur, le début et la durée avant l’export.</p></div><span id="editedCount" class="editor-count">${latestNoteEvents.length} notes</span></div>
+          <div class="editor-table-wrap"><table class="editor-table"><thead><tr><th>Hauteur MIDI</th><th>Début (s)</th><th>Durée (s)</th><th></th></tr></thead><tbody id="noteEditorRows"></tbody></table></div>
+          <div class="editor-add-row">
+            <label>Note MIDI <input id="addMidi" type="number" min="0" max="127" value="60"></label>
+            <label>Début (s) <input id="addStart" type="number" min="0" step="0.01" value="0"></label>
+            <label>Durée (s) <input id="addDuration" type="number" min="0.01" step="0.01" value="0.5"></label>
+            <button class="outline-btn" id="addNoteBtn" type="button">＋ Ajouter une note</button>
+          </div>
+          <div class="analysis-actions"><button class="outline-btn" id="applyNoteEditsBtn">Appliquer les corrections</button><button class="outline-btn" id="downloadEventsBtn">Télécharger les événements JSON</button><button class="outline-btn" id="exportMidiBtn">Exporter MIDI</button><button class="primary-btn" id="exportPolyXmlBtn">Exporter la partition polyphonique</button></div>
+          <div class="score-preview-tools">
+            <label>Clé <select id="scoreClef"><option value="treble">Sol</option><option value="bass">Fa</option></select></label>
+            <label>Quantification <select id="scoreGrid"><option value="0">Aucune</option><option value="0.25">1/16</option><option value="0.5" selected>1/8</option><option value="1">Noire</option><option value="2">Blanche</option></select></label>
+            <button class="outline-btn" id="quantizeBtn" type="button">Quantifier les notes</button>
+            <button class="primary-btn" id="printScoreBtn" type="button">Imprimer / PDF</button>
+          </div>
+          <div class="score-preview-wrap"><div class="score-preview-head"><h4>Aperçu de la portée</h4><span>Notation simplifiée · à vérifier</span></div><div id="scorePreview" class="score-preview" role="img" aria-label="Aperçu simplifié de la partition"></div></div>
+          <p id="editorFeedback" class="editor-feedback" role="status" aria-live="polite">Les corrections ne modifient pas le fichier audio original.</p>
+        </section>
+        <ul class="limitations"><li>${esc(result.warning||"Résultat expérimental à vérifier à l'écoute.")}</li><li>Les pistes représentent des hauteurs détectées, pas nécessairement des instruments distincts.</li><li>Cette analyse ne sépare pas les voix ni les instruments d'un mixage.</li></ul>
+      </div>`;
+      $("#downloadEventsBtn").onclick=()=>{
+        const blob=new Blob([JSON.stringify({project:currentProject?.name||"",engine:result.engine,notes:latestNoteEvents,pitch_tracks:tracks},null,2)],{type:"application/json"});
+        const url=URL.createObjectURL(blob),a=document.createElement("a");
+        a.href=url;a.download="stem2core-polyphonic-events.json";document.body.append(a);a.click();a.remove();URL.revokeObjectURL(url);
+      };
+      $("#exportPolyXmlBtn").onclick=exportLatestPolyphonicMusicXML;
+      $("#exportMidiBtn").onclick=exportLatestMidi;
+      renderNoteEditor();
+      $("#applyNoteEditsBtn").onclick=applyNoteEdits;
+      $("#addNoteBtn").onclick=addManualNote;
+      $("#quantizeBtn").onclick=quantizeLatestNotes;
+      $("#printScoreBtn").onclick=()=>window.print();
+      $("#scoreClef").onchange=renderScorePreview;
+      setAnalysisStatus("Analyse terminée · résultat expérimental à vérifier","success");
+    }catch(e){setAnalysisStatus(e.message,"error")}
+    finally{sep.disabled=false;pitch.disabled=false;poly.disabled=false}
+  };
+}
+
+
+
+function midiStaffPosition(midi,clef){
+  const pc=midi%12,oct=Math.floor(midi/12)-1;
+  const map=[["C",0],["C",1],["D",0],["D",1],["E",0],["F",0],["F",1],["G",0],["G",1],["A",0],["A",1],["B",0]][pc];
+  const letterIndex={C:0,D:1,E:2,F:3,G:4,A:5,B:6}[map[0]];
+  const diatonic=oct*7+letterIndex;
+  const base=clef==="bass"?(2*7+4):(4*7+2); // G2 bass, E4 treble bottom line
+  return {step:diatonic-base,alter:map[1]};
+}
+function renderScorePreview(){
+  const host=$("#scorePreview");if(!host)return;
+  const clef=$("#scoreClef")?.value||"treble";
+  const notes=latestNoteEvents.slice().sort((a,b)=>a.start-b.start);
+  if(!notes.length){host.innerHTML='<p class="future-note">Aucune note à afficher.</p>';return}
+  const tempo=Math.max(20,Math.min(300,Number($("#scoreTempo")?.value||120)));
+  const maxTime=Math.max(2,...notes.map(n=>Number(n.start||0)+Number(n.duration||0)));
+  const width=Math.max(900,Math.min(5200,130+maxTime*95));
+  const top=50,lineGap=20,baseY=130;
+  const yFor=n=>baseY-midiStaffPosition(Number(n.midi),clef).step*10;
+  const staffLines=Array.from({length:5},(_,i)=>`<line x1="72" y1="${top+i*lineGap}" x2="${width-25}" y2="${top+i*lineGap}" class="staff-line"/>`).join("");
+  const beatSec=60/tempo,barSec=beatSec*4;
+  let bars="",beatGuides="";
+  for(let t=beatSec;t<maxTime;t+=beatSec){
+    const x=90+t*95;
+    if(Math.abs((t/barSec)-Math.round(t/barSec))<0.0001){
+      bars+=`<line x1="${x}" y1="35" x2="${x}" y2="151" class="bar-line"/><text x="${x+4}" y="27" class="bar-number">${Math.round(t/barSec)+1}</text>`;
+    }else{
+      beatGuides+=`<line x1="${x}" y1="48" x2="${x}" y2="132" class="beat-guide"/>`;
+    }
+  }
+  const noteSvg=notes.slice(0,1500).map(n=>{
+    const midi=Number(n.midi),pos=midiStaffPosition(midi,clef),x=90+Number(n.start||0)*95,y=yFor(n);
+    const accidental=pos.alter?`<text x="${x-17}" y="${y+4}" class="accidental">♯</text>`:"";
+    let ledger="";
+    if(y<45||y>135){const dir=y<45?20:-20;for(let ly=y<45?30:150;y<45?ly>=y-2:ly<=y+2;ly+=dir)ledger+=`<line x1="${x-12}" y1="${ly}" x2="${x+12}" y2="${ly}" class="ledger-line"/>`;} 
+    const beats=Math.max(0.0625,Number(n.duration||0)/beatSec);
+    const whole=beats>=3.5,half=!whole&&beats>=1.75;
+    const stemUp=y>85,stemX=stemUp?x+9:x-9,stemY=stemUp?y-38:y+38;
+    const headClass=(whole||half)?"note-head-open":"note-head-filled";
+    const head=`<ellipse cx="${x}" cy="${y}" rx="8.5" ry="5.8" transform="rotate(-18 ${x} ${y})" class="${headClass}"/>`;
+    let stem="";
+    if(!whole){
+      stem=`<line x1="${stemX}" y1="${y}" x2="${stemX}" y2="${stemY}" class="note-stem"/>`;
+      if(beats<0.9){
+        const flags=beats<0.38?2:1;
+        for(let f=0;f<flags;f++){
+          const fy=stemUp?stemY+f*7:stemY-f*7;
+          const cy=stemUp?fy+6:fy-6;
+          stem+=`<path d="M ${stemX} ${fy} q 18 7 8 17" class="note-flag"/>`;
+        }
+      }
+    }
+    const tip=`${noteLabel(midi)} · ${Number(n.start).toFixed(2)} s · ${Number(n.duration).toFixed(2)} s`;
+    return `<g><title>${esc(tip)}</title>${ledger}${accidental}${head}${stem}</g>`;
+  }).join("");
+  host.innerHTML=`<svg class="staff-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} 190"><rect width="${width}" height="190" rx="8" class="score-paper"/><text x="18" y="113" class="clef-glyph">${clef==="bass"?"𝄢":"𝄞"}</text>${beatGuides}${staffLines}${bars}${noteSvg}<text x="72" y="174" class="score-caption">0 s · ${tempo} BPM · mesure 4/4</text><text x="${width-100}" y="174" class="score-caption">${maxTime.toFixed(1)} s</text></svg>`;
+}
+function quantizeLatestNotes(){
+  const grid=Number($("#scoreGrid")?.value||0),tempo=Number($("#scoreTempo")?.value||120);
+  if(!grid){$("#editorFeedback").textContent="Choisissez une grille de quantification.";return}
+  if(!Number.isFinite(tempo)||tempo<20||tempo>300){$("#editorFeedback").textContent="Tempo invalide (20–300 BPM).";return}
+  const step=(60/tempo)*grid;
+  latestNoteEvents=latestNoteEvents.map(n=>({...n,start:Number(Math.max(0,Math.round(n.start/step)*step).toFixed(4)),duration:Number(Math.max(step,Math.round(n.duration/step)*step).toFixed(4))})).sort((a,b)=>a.start-b.start||a.midi-b.midi);
+  renderNoteEditor();
+  $("#editorFeedback").textContent=`Quantification appliquée sur une grille de ${grid} temps. Vérifiez avant export.`;
+}
+
+function renderNoteEditor(){
+  const tbody=$("#noteEditorRows");
+  if(!tbody)return;
+  tbody.innerHTML=latestNoteEvents.slice(0,500).map((n,i)=>`
+    <tr data-note-index="${i}">
+      <td><input class="edit-midi" type="number" min="0" max="127" value="${Number(n.midi)}" aria-label="Hauteur MIDI ligne ${i+1}"></td>
+      <td><input class="edit-start" type="number" min="0" step="0.01" value="${Number(n.start).toFixed(3)}" aria-label="Début ligne ${i+1}"></td>
+      <td><input class="edit-duration" type="number" min="0.01" step="0.01" value="${Number(n.duration).toFixed(3)}" aria-label="Durée ligne ${i+1}"></td>
+      <td><button class="delete-note-btn" type="button" data-delete-note="${i}" aria-label="Supprimer la note ${i+1}">×</button></td>
+    </tr>`).join("");
+  if(latestNoteEvents.length>500){
+    const row=document.createElement("tr");
+    row.innerHTML=`<td colspan="4">Affichage limité aux 500 premières notes. Les autres restent conservées pour l’export.</td>`;
+    tbody.append(row);
+  }
+  $("#editedCount").textContent=`${latestNoteEvents.length} notes`;
+  renderScorePreview();
+  tbody.querySelectorAll("[data-delete-note]").forEach(btn=>btn.onclick=()=>{
+    const index=Number(btn.dataset.deleteNote);
+    latestNoteEvents.splice(index,1);
+    renderNoteEditor();
+    $("#editorFeedback").textContent="Note supprimée de la transcription.";
+  });
+}
+function applyNoteEdits(){
+  const rows=[...$("#noteEditorRows").querySelectorAll("tr[data-note-index]")];
+  try{
+    const updates=rows.map(row=>{
+      const midi=Number(row.querySelector(".edit-midi").value);
+      const start=Number(row.querySelector(".edit-start").value);
+      const duration=Number(row.querySelector(".edit-duration").value);
+      if(!Number.isInteger(midi)||midi<0||midi>127||!Number.isFinite(start)||start<0||!Number.isFinite(duration)||duration<=0){
+        throw new Error("Vérifiez les hauteurs MIDI (0–127), les débuts et les durées positives.");
+      }
+      return {midi,start,duration,confidence:1};
+    });
+    // Preserve any events beyond the visible editor limit.
+    latestNoteEvents=updates.concat(latestNoteEvents.slice(rows.length));
+    latestNoteEvents.sort((a,b)=>a.start-b.start||a.midi-b.midi);
+    renderNoteEditor();
+    $("#editorFeedback").textContent="Corrections appliquées. Vous pouvez maintenant exporter la partition.";
+    toast("Corrections des notes appliquées");
+  }catch(e){
+    $("#editorFeedback").textContent=e.message;
+    setAnalysisStatus(e.message,"error");
+  }
+}
+function addManualNote(){
+  const midi=Number($("#addMidi").value),start=Number($("#addStart").value),duration=Number($("#addDuration").value);
+  if(!Number.isInteger(midi)||midi<0||midi>127||!Number.isFinite(start)||start<0||!Number.isFinite(duration)||duration<=0){
+    $("#editorFeedback").textContent="Valeurs invalides : MIDI 0–127, début positif et durée supérieure à zéro.";
+    return;
+  }
+  latestNoteEvents.push({midi,start,duration,confidence:1,manually_added:true});
+  latestNoteEvents.sort((a,b)=>a.start-b.start||a.midi-b.midi);
+  renderNoteEditor();
+  $("#editorFeedback").textContent="Note ajoutée manuellement.";
+}
+
+function midiVariableLength(value){
+  let buffer=value&0x7f;
+  while((value >>= 7)){buffer <<= 8;buffer |= ((value&0x7f)|0x80);}
+  const bytes=[];
+  while(true){bytes.push(buffer&0xff);if(buffer&0x80)buffer>>=8;else break;}
+  return bytes;
+}
+function exportLatestMidi(){
+  if(!latestNoteEvents.length){toast("Aucune note à exporter");return}
+  const tempo=Number($("#scoreTempo")?.value||120);
+  if(!Number.isFinite(tempo)||tempo<20||tempo>300){toast("Tempo invalide (20–300 BPM)");return}
+  const ppq=480,mpqn=Math.round(60000000/tempo);
+  const events=[
+    {tick:0,order:0,bytes:[0xff,0x03,0x09,83,84,69,77,50,67,79,82,69]},
+    {tick:0,order:1,bytes:[0xff,0x51,0x03,(mpqn>>16)&255,(mpqn>>8)&255,mpqn&255]},
+    {tick:0,order:2,bytes:[0xff,0x58,0x04,4,2,24,8]}
+  ];
+  for(const n of latestNoteEvents){
+    const midi=Number(n.midi),start=Number(n.start),duration=Number(n.duration);
+    if(!Number.isInteger(midi)||midi<0||midi>127||!Number.isFinite(start)||start<0||!Number.isFinite(duration)||duration<=0){
+      toast("Une note contient des données invalides");return;
+    }
+    const on=Math.max(0,Math.round(start*tempo/60*ppq));
+    const off=Math.max(on+1,Math.round((start+duration)*tempo/60*ppq));
+    events.push({tick:on,order:4,bytes:[0x90,midi,96]});
+    events.push({tick:off,order:3,bytes:[0x80,midi,0]});
+  }
+  events.sort((a,b)=>a.tick-b.tick||a.order-b.order);
+  const track=[];
+  let previous=0;
+  for(const event of events){
+    track.push(...midiVariableLength(event.tick-previous),...event.bytes);
+    previous=event.tick;
+  }
+  track.push(0x00,0xff,0x2f,0x00);
+  const u32=n=>[(n>>>24)&255,(n>>>16)&255,(n>>>8)&255,n&255];
+  const u16=n=>[(n>>>8)&255,n&255];
+  const header=[...Array.from("MThd").map(c=>c.charCodeAt(0)),...u32(6),...u16(0),...u16(1),...u16(ppq)];
+  const chunk=[...Array.from("MTrk").map(c=>c.charCodeAt(0)),...u32(track.length),...track];
+  const blob=new Blob([new Uint8Array([...header,...chunk])],{type:"audio/midi"});
+  const url=URL.createObjectURL(blob),a=document.createElement("a");
+  a.href=url;a.download="stem2core-transcription.mid";document.body.append(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  toast("Fichier MIDI exporté");
+}
+
+async function exportLatestPolyphonicMusicXML(){
+  try{
+    requireOnlineConsent();
+    activeAnalysisController=new AbortController();
+    const r=await apiFetch("/api/v6/export/polyphonic-musicxml",{
+      method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        title:(currentProject?.name||"STEM2CORE")+" — analyse polyphonique",
+        notes:latestNoteEvents,tempo:Number($("#scoreTempo")?.value||120)
+      })
+    });
+    if(!r.ok){const d=await r.json().catch(()=>({}));throw new Error(d.detail||"Export MusicXML polyphonique impossible")}
+    const blob=await r.blob(),url=URL.createObjectURL(blob),a=document.createElement("a");
+    a.href=url;a.download="stem2core-polyphonic-score.musicxml";
+    document.body.append(a);a.click();a.remove();URL.revokeObjectURL(url);
+    toast("Partition polyphonique MusicXML exportée");
+  }catch(e){setAnalysisStatus(e.message,"error")}
+}
+
+async function exportLatestMusicXML(){
+  try{
+    requireOnlineConsent();
+    activeAnalysisController=new AbortController();
+    const r=await apiFetch("/api/v5/export/musicxml",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({title:currentProject?.name||"STEM2CORE transcription",notes:latestNoteEvents,tempo:Number($("#scoreTempo")?.value||120)})});
+    if(!r.ok){const d=await r.json().catch(()=>({}));throw new Error(d.detail||"Export MusicXML impossible")}
+    const blob=await r.blob(),url=URL.createObjectURL(blob),a=document.createElement("a");
+    a.href=url;a.download="stem2core-score.musicxml";document.body.append(a);a.click();a.remove();URL.revokeObjectURL(url);toast("Partition MusicXML exportée");
+  }catch(e){setAnalysisStatus(e.message,"error")}
+}
+
+
+
+// V7.1 LOCAL PRIVACY: no background network, no service worker, no telemetry.
+window.STEM2CORE_LOCAL_ONLY = false;
+window.addEventListener("pagehide", () => {
+  document.querySelectorAll("audio,video").forEach(media => { try { media.pause(); } catch(e) {} });
+});
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) document.querySelectorAll("audio,video").forEach(media => { try { media.pause(); } catch(e) {} });
+});
+
+function blobToDataUrl(blob){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=()=>resolve(String(reader.result).split(",")[1]||"");
+    reader.onerror=()=>reject(reader.error);
+    reader.readAsDataURL(blob);
+  });
+}
+function dataUrlToBlob(data,type){
+  const raw=atob(data),bytes=new Uint8Array(raw.length);
+  for(let i=0;i<raw.length;i++)bytes[i]=raw.charCodeAt(i);
+  return new Blob([bytes],{type:type||"application/octet-stream"});
+}
+async function exportLocalBackup(){
+  const button=document.getElementById("backupExportBtn");
+  button.disabled=true;button.textContent="Préparation…";
+  try{
+    const audio=[];
+    for(const project of projects){
+      for(const meta of project.files||[]){
+        const record=await getAudio(meta.id);
+        if(record)audio.push({id:record.id,name:record.name,type:record.type,size:record.size,data:await blobToDataUrl(record.blob)});
+      }
+    }
+    const payload={format:"STEM2CORE_LOCAL_BACKUP",version:1,createdAt:new Date().toISOString(),projects,audio};
+    const blob=new Blob([JSON.stringify(payload)],{type:"application/json"});
+    const url=URL.createObjectURL(blob),a=document.createElement("a");
+    a.href=url;a.download="STEM2CORE-sauvegarde-"+new Date().toISOString().slice(0,10)+".json";
+    document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+    toast("Sauvegarde créée. Conserve le fichier en lieu sûr.");
+  }catch(e){toast("Sauvegarde impossible : "+(e.message||"stockage indisponible"));}
+  finally{button.disabled=false;button.textContent="Sauvegarder";}
+}
+async function restoreLocalBackup(file){
+  if(!file)return;
+  const button=document.getElementById("backupImportBtn");
+  button.disabled=true;button.textContent="Restauration…";
+  try{
+    const payload=JSON.parse(await file.text());
+    if(payload.format!=="STEM2CORE_LOCAL_BACKUP"||!Array.isArray(payload.projects)||!Array.isArray(payload.audio))throw new Error("Fichier de sauvegarde STEM2CORE non reconnu");
+    const db=await openAudioDB();
+    await new Promise((resolve,reject)=>{
+      const tx=db.transaction("audio","readwrite"),store=tx.objectStore("audio");
+      payload.audio.forEach(item=>store.put({id:item.id,name:item.name,type:item.type,size:item.size,blob:dataUrlToBlob(item.data,item.type)}));
+      tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);
+    });
+    db.close();
+    projects=payload.projects;
+    localStorage.setItem(DB_KEY,JSON.stringify(projects));
+    render();
+    toast("Sauvegarde restaurée sur cet appareil.");
+  }catch(e){toast("Restauration impossible : "+(e.message||"fichier invalide"));}
+  finally{button.disabled=false;button.textContent="Restaurer";}
+}
+document.getElementById("backupExportBtn").addEventListener("click",exportLocalBackup);
+document.getElementById("backupImportBtn").addEventListener("click",()=>document.getElementById("backupImportFile").click());
+document.getElementById("backupImportFile").addEventListener("change",e=>restoreLocalBackup(e.target.files?.[0]));
+
+</script>
+</body></html>

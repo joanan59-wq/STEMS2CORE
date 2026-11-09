@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: stem2core-api
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: STEM2CORE_SEPARATION_PROVIDER
+        value: mock
+      - key: STEM2CORE_MAX_UPLOAD_MB
+        value: "250"
+      - key: STEM2CORE_CORS_ORIGINS
+        value: https://stem2core-web.onrender.com
+  - type: web
+    name: stem2core-web
+    runtime: static
+    staticPublishPath: ./frontend
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
